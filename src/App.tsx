@@ -1,17 +1,17 @@
-import React from 'react';
+import React, {FunctionComponent} from 'react';
 import logo from './logo.svg';
-import './App.css';
+import style from './App.module.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+const App: FunctionComponent = () =>
+  (
+    <div className={style.app}>
+      <header className={style.appHeader}>
+        <img src={logo} className={style.appLogo} alt="logo" />
         <p>
           Edit <code>src/App.tsx</code> and save to reload.
         </p>
         <a
-          className="App-link"
+          className={style.appLink}
           href="https://reactjs.org"
           target="_blank"
           rel="noopener noreferrer"
@@ -21,6 +21,6 @@ function App() {
       </header>
     </div>
   );
-}
+
 
 export default App;
