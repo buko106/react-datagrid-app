@@ -1,6 +1,8 @@
 import React, { FunctionComponent } from 'react';
-import style from './App.module.css';
 import { ColumnWithLooseAccessor, useSortBy, useTable } from 'react-table';
+import classNames from 'classnames';
+
+import style from './App.module.css';
 
 const useData = () =>
   React.useMemo(
@@ -64,7 +66,10 @@ const App: FunctionComponent = () => {
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column) => (
               <th
-                className={style.tableHeader}
+                className={classNames({
+                  [style.tableHeader]: true,
+                  [style.tableHeaderNonLeaf]: column.columns?.length > 0,
+                })}
                 {...column.getHeaderProps(column.getSortByToggleProps())}
               >
                 {column.render('Header')}

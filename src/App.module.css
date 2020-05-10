@@ -3,11 +3,14 @@
 }
 
 .tableHeader {
-  border-bottom: solid 3px red;
   background: aliceblue;
   color: black;
   font-weight: bold;
   user-select: none;
+}
+
+.tableHeaderNonLeaf {
+  border-bottom: dotted 3px black;
 }
 
 .tableData {
