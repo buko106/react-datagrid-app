@@ -1,6 +1,6 @@
 import React, { FunctionComponent } from 'react';
 import { ColumnWithLooseAccessor, useSortBy, useTable } from 'react-table';
-import classNames from 'classnames';
+import clsx from 'clsx';
 
 import style from './App.module.css';
 
@@ -66,10 +66,10 @@ const App: FunctionComponent = () => {
           <tr {...headerGroup.getHeaderGroupProps()}>
             {headerGroup.headers.map((column) => (
               <th
-                className={classNames({
-                  [style.tableHeader]: true,
-                  [style.tableHeaderNonLeaf]: column.columns?.length > 0,
-                })}
+                className={clsx(
+                  style.tableHeader,
+                  column.columns?.length > 0 && style.tableHeaderNonLeaf
+                )}
                 {...column.getHeaderProps(column.getSortByToggleProps())}
               >
                 {column.render('Header')}
